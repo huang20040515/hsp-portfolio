@@ -674,6 +674,234 @@
         border-radius: 0 12px 12px 0;
       }
 
+      /* ===== Video Showcase Carousel ===== */
+      .video-showcase {
+        margin-top: 22px;
+        padding-top: 22px;
+        border-top: 1px dashed rgba(26, 35, 64, 0.15);
+      }
+
+      .video-showcase-label {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        margin-bottom: 14px;
+      }
+
+      .video-showcase-label span {
+        color: var(--lime-deep);
+      }
+
+      .vcarousel {
+        position: relative;
+      }
+
+      .vcarousel-stage {
+        position: relative;
+        height: 420px;
+        overflow: hidden;
+        border-radius: 24px;
+        background: linear-gradient(160deg, rgba(26, 35, 64, 0.06), rgba(26, 35, 64, 0.02));
+      }
+
+      .vcarousel-track {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+      }
+
+      .vslide {
+        flex: 0 0 240px;
+        margin: 0 12px;
+        cursor: pointer;
+        transition: transform 0.45s ease, opacity 0.45s ease, filter 0.45s ease;
+        opacity: 0.45;
+        transform: scale(0.86);
+        filter: saturate(0.7);
+      }
+
+      .vslide.is-active {
+        opacity: 1;
+        transform: scale(1.06);
+        filter: saturate(1);
+        z-index: 2;
+      }
+
+      .vslide.is-near {
+        opacity: 0.7;
+        transform: scale(0.94);
+      }
+
+      .phone-frame {
+        position: relative;
+        border-radius: 28px;
+        overflow: hidden;
+        background: #0f1420;
+        border: 3px solid rgba(255, 255, 255, 0.85);
+        box-shadow:
+          0 18px 40px rgba(26, 35, 64, 0.22),
+          0 0 0 1px rgba(26, 35, 64, 0.06);
+        aspect-ratio: 9 / 16;
+      }
+
+      .phone-frame::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 36%;
+        height: 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.25);
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      .phone-frame video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        background: #000;
+      }
+
+      .vslide-play {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(180deg, transparent 40%, rgba(15, 20, 32, 0.55) 100%);
+        z-index: 2;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+
+      .vslide.is-playing .vslide-play {
+        opacity: 0;
+      }
+
+      .play-btn {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: var(--lime);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 24px rgba(200, 245, 66, 0.5);
+        transition: transform 0.2s ease;
+      }
+
+      .vslide:hover .play-btn {
+        transform: scale(1.08);
+      }
+
+      .play-btn svg {
+        width: 20px;
+        height: 20px;
+        margin-left: 3px;
+        fill: var(--ink);
+      }
+
+      .vslide-name {
+        position: absolute;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 3;
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 12px;
+        color: #fff;
+        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+      }
+
+      .vslide.is-playing .vslide-name {
+        opacity: 0;
+      }
+
+      .vcarousel-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: #fff;
+        border: 1px solid rgba(26, 35, 64, 0.1);
+        box-shadow: 0 8px 20px rgba(26, 35, 64, 0.15);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+        font-size: 18px;
+        color: var(--ink);
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .vcarousel-nav:hover {
+        transform: translateY(-50%) scale(1.08);
+        background: var(--lime);
+      }
+
+      .vcarousel-prev {
+        left: 8px;
+      }
+
+      .vcarousel-next {
+        right: 8px;
+      }
+
+      .vcarousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .vdot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: rgba(26, 35, 64, 0.2);
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+
+      .vdot.is-active {
+        background: var(--lime-deep);
+        transform: scale(1.35);
+      }
+
+      .vdot:hover {
+        background: rgba(26, 35, 64, 0.4);
+      }
+
+      @media (max-width: 640px) {
+        .vcarousel-stage {
+          height: 360px;
+        }
+
+        .vslide {
+          flex: 0 0 190px;
+          margin: 0 8px;
+        }
+
+        .vcarousel-nav {
+          width: 38px;
+          height: 38px;
+        }
+      }
+
+
       /* ===== Projects ===== */
       .project-visual-wrap {
         margin-bottom: 36px;
@@ -1201,6 +1429,18 @@
                   <span class="tag">爆款拆解</span>
                   <span class="tag">知识库</span>
                 </div>
+
+                <div class="video-showcase">
+                  <div class="video-showcase-label">{ <span>WORK REEL</span> } 点击卡片播放</div>
+                  <div class="vcarousel" id="videoCarousel">
+                    <div class="vcarousel-stage">
+                      <div class="vcarousel-track" id="vcarouselTrack"></div>
+                    </div>
+                    <button class="vcarousel-nav vcarousel-prev" id="vPrev" type="button" aria-label="上一个">‹</button>
+                    <button class="vcarousel-nav vcarousel-next" id="vNext" type="button" aria-label="下一个">›</button>
+                    <div class="vcarousel-dots" id="vDots"></div>
+                  </div>
+                </div>
               </div>
             </article>
 
@@ -1568,6 +1808,189 @@
           const el = document.getElementById(id);
           if (el) el.addEventListener("click", copyEmail);
         });
+
+        /* ===== Video Showcase Carousel (infinite loop) ===== */
+        (function initVideoCarousel() {
+          const videos = [
+            { src: "assets/videos/出海教程.mp4", name: "出海教程" },
+            { src: "assets/videos/7月8日.mp4", name: "7月8日" },
+            { src: "assets/videos/7月13日.mp4", name: "7月13日" },
+            { src: "assets/videos/8月6日.mp4", name: "8月6日" },
+            { src: "assets/videos/8月14日.mp4", name: "8月14日" },
+            { src: "assets/videos/8月20日.mp4", name: "8月20日" },
+            { src: "assets/videos/9月2日.mp4", name: "9月2日" },
+          ];
+
+          const track = document.getElementById("vcarouselTrack");
+          const dotsWrap = document.getElementById("vDots");
+          const prevBtn = document.getElementById("vPrev");
+          const nextBtn = document.getElementById("vNext");
+          if (!track || !videos.length) return;
+
+          const total = videos.length;
+          // Duplicate list once on each side for seamless infinite loop
+          const loopList = [
+            ...videos.slice(-2),
+            ...videos,
+            ...videos.slice(0, 2),
+          ];
+
+          loopList.forEach((v, i) => {
+            const slide = document.createElement("div");
+            slide.className = "vslide";
+            slide.dataset.real = String((i - 2 + total) % total);
+            slide.innerHTML = `
+              <div class="phone-frame">
+                <video src="${v.src}" playsinline preload="metadata" muted loop></video>
+                <div class="vslide-play">
+                  <div class="play-btn">
+                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+                <div class="vslide-name">${v.name}</div>
+              </div>`;
+            track.appendChild(slide);
+          });
+
+          const slides = [...track.children];
+
+          for (let i = 0; i < total; i++) {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "vdot";
+            dot.setAttribute("aria-label", "切换到第 " + (i + 1) + " 个视频");
+            dot.addEventListener("click", () => goTo(i));
+            dotsWrap.appendChild(dot);
+          }
+          const dots = [...dotsWrap.children];
+
+          // index points into loopList; start at first real item
+          let index = 2;
+          let animating = false;
+
+          function slideWidth() {
+            const s = slides[0];
+            if (!s) return 264;
+            const style = getComputedStyle(s);
+            return s.offsetWidth + parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+          }
+
+          function centerOffset() {
+            const stage = track.parentElement;
+            return stage.clientWidth / 2 - slideWidth() / 2;
+          }
+
+          function render(animate) {
+            track.style.transition = animate ? "" : "none";
+            track.style.transform = `translateX(${centerOffset() - index * slideWidth()}px)`;
+            slides.forEach((s, i) => {
+              s.classList.toggle("is-active", i === index);
+              s.classList.toggle("is-near", Math.abs(i - index) === 1);
+            });
+            const real = ((index - 2) % total + total) % total;
+            dots.forEach((d, i) => d.classList.toggle("is-active", i === real));
+            if (!animate) {
+              void track.offsetWidth;
+              track.style.transition = "";
+            }
+          }
+
+          function stopAllExcept(activeSlide) {
+            slides.forEach((s) => {
+              const vid = s.querySelector("video");
+              if (!vid) return;
+              if (s !== activeSlide) {
+                vid.pause();
+                s.classList.remove("is-playing");
+              }
+            });
+          }
+
+          function goTo(realIndex, fromUser) {
+            if (animating) return;
+            const currentReal = ((index - 2) % total + total) % total;
+            let target = index + (realIndex - currentReal);
+            // shortest path on the loop
+            const diff = realIndex - currentReal;
+            if (diff > total / 2) target = index - (total - diff);
+            if (diff < -total / 2) target = index + (total + diff);
+            index = target;
+            render(true);
+            if (fromUser) afterMove();
+          }
+
+          function step(dir) {
+            if (animating) return;
+            index += dir;
+            render(true);
+            afterMove();
+          }
+
+          function afterMove() {
+            animating = true;
+            setTimeout(() => {
+              // snap back into the middle copy for infinite feel
+              const real = ((index - 2) % total + total) % total;
+              if (index >= total + 2) {
+                index = real + 2;
+                render(false);
+              } else if (index < 2) {
+                index = real + 2;
+                render(false);
+              }
+              animating = false;
+            }, 560);
+          }
+
+          prevBtn.addEventListener("click", () => step(-1));
+          nextBtn.addEventListener("click", () => step(1));
+
+          slides.forEach((slide) => {
+            slide.addEventListener("click", () => {
+              if (!slide.classList.contains("is-active")) {
+                const real = Number(slide.dataset.real);
+                goTo(real, true);
+                return;
+              }
+              const vid = slide.querySelector("video");
+              if (!vid) return;
+              stopAllExcept(slide);
+              if (vid.paused) {
+                vid.muted = false;
+                vid.play().catch(() => {
+                  vid.muted = true;
+                  vid.play().catch(() => {});
+                });
+                slide.classList.add("is-playing");
+              } else {
+                vid.pause();
+                slide.classList.remove("is-playing");
+              }
+            });
+          });
+
+          // pause when off-screen
+          const vis = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                  slides.forEach((s) => {
+                    const vid = s.querySelector("video");
+                    if (vid && !vid.paused) {
+                      vid.pause();
+                      s.classList.remove("is-playing");
+                    }
+                  });
+                }
+              });
+            },
+            { threshold: 0.15 }
+          );
+          vis.observe(track.parentElement);
+
+          window.addEventListener("resize", () => render(false));
+          render(false);
+        })();
 
         const io = new IntersectionObserver(
           (entries) => {
