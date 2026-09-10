@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>黄少鹏｜短视频编导 · 内容运营作品集</title>
+    <meta
+      name="description"
+      content="黄少鹏个人作品集，专注短视频编导、内容运营、TikTok美区出海与AIGC工作流。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --sky-1: #6eb6ff;
+        --sky-2: #a78bfa;
+        --sky-3: #f0abfc;
+        --lime: #c8f542;
+        --lime-deep: #9fcc1a;
+        --ink: #1a2340;
+        --ink-soft: #3d4a6b;
+        --muted: #6b7a9e;
+        --card: #ffffff;
+        --pink: #ffb4d6;
+        --mint: #a7f3d0;
+        --yellow: #fde68a;
+        --shadow: 0 20px 50px rgba(26, 35, 64, 0.14);
+        --shadow-soft: 0 10px 30px rgba(26, 35, 64, 0.1);
+        --radius: 28px;
+        --font-display: "Fredoka", "Noto Sans SC", sans-serif;
+        --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+        --shell: min(1120px, calc(100% - 40px));
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--ink);
+        line-height: 1.65;
+        background: linear-gradient(
+          180deg,
+          #5aa8f0 0%,
+          #7eb6f8 18%,
+          #a8b4f5 38%,
+          #c9b4f0 58%,
+          #e8d4f0 78%,
+          #f7e8f5 100%
+        );
+        background-attachment: fixed;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+        cursor: pointer;
+        border: none;
+        background: none;
+        color: inherit;
+      }
+
+      .shell {
+        width: var(--shell);
+        margin: 0 auto;
+      }
+
+      /* ===== Header ===== */
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        padding: 18px 0;
+        transition: background 0.3s ease, backdrop-filter 0.3s ease;
+      }
+
+      .site-header.is-scrolled {
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 4px 24px rgba(26, 35, 64, 0.08);
+      }
+
+      .site-header .inner {
+        width: var(--shell);
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 22px;
+        letter-spacing: 0.02em;
+        color: var(--ink);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .brand-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--lime);
+        box-shadow: 0 0 0 3px rgba(200, 245, 66, 0.35);
+      }
+
+      .nav {
+        display: flex;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.45);
+        backdrop-filter: blur(10px);
+        padding: 6px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+      }
+
+      .nav a {
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--ink-soft);
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .nav a:hover,
+      .nav a.is-active {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .header-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 999px;
+        background: var(--lime);
+        color: var(--ink);
+        font-weight: 700;
+        font-size: 13px;
+        box-shadow: 0 6px 18px rgba(200, 245, 66, 0.45);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .header-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(200, 245, 66, 0.55);
+      }
+
+      .menu-toggle {
+        display: none;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .menu-toggle span {
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: var(--ink);
+        border-radius: 2px;
+      }
+
+      .mobile-nav {
+        display: none;
+        position: fixed;
+        top: 76px;
+        left: 16px;
+        right: 16px;
+        z-index: 49;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 18px;
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .mobile-nav.open {
+        display: flex;
+      }
+
+      .mobile-nav a {
+        padding: 12px 16px;
+        border-radius: 14px;
+        font-weight: 500;
+        color: var(--ink);
+      }
+
+      .mobile-nav a:hover {
+        background: rgba(26, 35, 64, 0.06);
+      }
+
+      /* ===== Hero ===== */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 120px 0 60px;
+        overflow: hidden;
+      }
+
+      .hero-bg-text {
+        position: absolute;
+        top: 14%;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(80px, 18vw, 220px);
+        line-height: 0.9;
+        color: rgba(255, 255, 255, 0.18);
+        letter-spacing: -0.03em;
+        white-space: nowrap;
+        pointer-events: none;
+        user-select: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        width: var(--shell);
+        margin: 0 auto;
+      }
+
+      .hero-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(8px);
+        font-family: var(--font-display);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.7);
+      }
+
+      .hero-kicker .pulse {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--lime);
+        animation: pulse 1.6s ease infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 rgba(200, 245, 66, 0.7);
+        }
+        50% {
+          box-shadow: 0 0 0 8px rgba(200, 245, 66, 0);
+        }
+      }
+
+      .hero-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(56px, 12vw, 140px);
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        color: #fff;
+        text-shadow: 0 8px 40px rgba(26, 35, 64, 0.15);
+        margin-bottom: 16px;
+      }
+
+      .hero-title .accent {
+        color: var(--lime);
+      }
+
+      .hero-sub {
+        font-size: clamp(15px, 2vw, 18px);
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 36ch;
+        margin-bottom: 28px;
+        font-weight: 500;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 40px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 24px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 14px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: var(--lime);
+        color: var(--ink);
+        box-shadow: 0 8px 24px rgba(200, 245, 66, 0.45);
+      }
+
+      .btn-ghost {
+        background: rgba(255, 255, 255, 0.55);
+        color: var(--ink);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+      }
+
+      .hero-visual {
+        position: relative;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(26, 35, 64, 0.25);
+        border: 4px solid rgba(255, 255, 255, 0.5);
+      }
+
+      .hero-visual img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .float-badge {
+        position: absolute;
+        padding: 10px 16px;
+        border-radius: 16px;
+        background: #fff;
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 13px;
+        box-shadow: var(--shadow-soft);
+        animation: float 4s ease-in-out infinite;
+        z-index: 3;
+      }
+
+      .float-badge.b1 {
+        top: 12%;
+        left: -2%;
+        color: var(--ink);
+      }
+
+      .float-badge.b2 {
+        top: 30%;
+        right: -2%;
+        background: var(--lime);
+        animation-delay: 0.6s;
+      }
+
+      .float-badge.b3 {
+        bottom: 18%;
+        left: -4%;
+        background: var(--pink);
+        animation-delay: 1.2s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* ===== Section common ===== */
+      .section {
+        padding: 88px 0;
+        position: relative;
+      }
+
+      .section-label {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: 10px;
+      }
+
+      .section-label span {
+        color: var(--lime);
+      }
+
+      .section-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(32px, 5vw, 48px);
+        color: #fff;
+        line-height: 1.15;
+        margin-bottom: 36px;
+        text-shadow: 0 4px 20px rgba(26, 35, 64, 0.12);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+
+      .reveal.is-in {
+        opacity: 1;
+        transform: none;
+      }
+
+      /* ===== Metric cards ===== */
+      .metric-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .metric-card {
+        background: rgba(255, 255, 255, 0.42);
+        backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: var(--radius);
+        padding: 32px 28px;
+        min-height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .metric-card::after {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        right: -30px;
+        top: -30px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(200, 245, 66, 0.35), transparent 70%);
+        pointer-events: none;
+      }
+
+      .metric-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow);
+      }
+
+      .metric-num {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(32px, 4vw, 44px);
+        color: var(--lime-deep);
+        line-height: 1;
+        text-shadow: 0 2px 0 rgba(255, 255, 255, 0.5);
+      }
+
+      .metric-label {
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--ink);
+      }
+
+      .metric-source {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* ===== About ===== */
+      .about-card {
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 32px;
+        padding: clamp(28px, 5vw, 48px);
+        box-shadow: var(--shadow);
+        display: grid;
+        grid-template-columns: 1.3fr 0.9fr;
+        gap: 36px;
+        align-items: start;
+      }
+
+      .about-name {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(36px, 5vw, 52px);
+        line-height: 1.1;
+        margin-bottom: 8px;
+      }
+
+      .about-role {
+        font-weight: 700;
+        color: var(--lime-deep);
+        margin-bottom: 18px;
+        font-size: 15px;
+      }
+
+      .about-copy {
+        color: var(--ink-soft);
+        margin-bottom: 22px;
+        max-width: 48ch;
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(26, 35, 64, 0.06);
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink-soft);
+      }
+
+      .about-side {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .info-tile {
+        background: #fff;
+        border-radius: 20px;
+        padding: 18px 20px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .info-tile .k {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      .info-tile .v {
+        font-weight: 700;
+        font-size: 16px;
+        word-break: break-all;
+      }
+
+      /* ===== Experience ===== */
+      .exp-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .exp-card {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 24px;
+        padding: 26px 28px;
+        display: grid;
+        grid-template-columns: 72px 1fr;
+        gap: 18px;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.2s ease;
+      }
+
+      .exp-card:hover {
+        transform: translateX(4px);
+      }
+
+      .exp-idx {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 28px;
+        color: rgba(26, 35, 64, 0.2);
+      }
+
+      .exp-period {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--muted);
+        margin-bottom: 10px;
+        letter-spacing: 0.04em;
+      }
+
+      .exp-head {
+        display: flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+        margin-bottom: 14px;
+      }
+
+      .exp-org {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(26px, 3.2vw, 34px);
+        line-height: 1.15;
+        color: var(--ink);
+      }
+
+      .exp-title {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: clamp(16px, 2vw, 20px);
+        color: var(--lime-deep);
+        padding: 4px 12px;
+        border-radius: 999px;
+        background: rgba(200, 245, 66, 0.22);
+      }
+
+      .exp-summary {
+        color: var(--ink-soft);
+        font-size: 14px;
+        margin-bottom: 12px;
+      }
+
+      .exp-highlight {
+        border-left: 3px solid var(--lime);
+        padding: 8px 0 8px 14px;
+        margin-bottom: 14px;
+        font-size: 14px;
+        font-weight: 500;
+        background: linear-gradient(90deg, rgba(200, 245, 66, 0.12), transparent);
+        border-radius: 0 12px 12px 0;
+      }
+
+      /* ===== Projects ===== */
+      .project-visual-wrap {
+        margin-bottom: 36px;
+        border-radius: 32px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        border: 4px solid rgba(255, 255, 255, 0.45);
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+
+      .project-card {
+        background: rgba(255, 255, 255, 0.52);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 24px;
+        padding: 28px;
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        transition: transform 0.25s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+      }
+
+      .project-card.wide {
+        grid-column: 1 / -1;
+      }
+
+      .project-cat {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        color: var(--lime-deep);
+      }
+
+      .project-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 1.25;
+      }
+
+      .project-copy {
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .project-metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: auto;
+        padding-top: 10px;
+      }
+
+      .project-metrics .n {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 26px;
+        color: var(--lime-deep);
+        line-height: 1;
+      }
+
+      .project-metrics .l {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 4px;
+      }
+
+      /* ===== Capabilities ===== */
+      .cap-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .cap-card {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 24px;
+        padding: 28px 24px;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.2s ease;
+      }
+
+      .cap-card:hover {
+        transform: translateY(-3px);
+      }
+
+      .cap-idx {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 14px;
+        color: rgba(26, 35, 64, 0.25);
+        margin-bottom: 14px;
+      }
+
+      .cap-title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .cap-copy {
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+
+      /* ===== Workflow ===== */
+      .workflow-wrap {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 28px;
+        align-items: start;
+      }
+
+      .workflow-intro {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 28px;
+        padding: 32px 28px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .workflow-intro h3 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(24px, 3vw, 32px);
+        line-height: 1.25;
+        margin-bottom: 14px;
+      }
+
+      .workflow-intro h3 span {
+        color: var(--lime-deep);
+      }
+
+      .workflow-intro p {
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .workflow-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .workflow-step {
+        background: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 20px;
+        padding: 18px 20px;
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        gap: 12px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .workflow-step .n {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--lime-deep);
+      }
+
+      .workflow-step strong {
+        display: block;
+        margin-bottom: 4px;
+        font-size: 15px;
+      }
+
+      .workflow-step p {
+        margin: 0;
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+
+      /* ===== Resume / Contact ===== */
+      .edu-card {
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 24px;
+        padding: 28px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+        box-shadow: var(--shadow-soft);
+        margin-bottom: 20px;
+      }
+
+      .edu-card h3 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 4px;
+      }
+
+      .edu-card p {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .edu-period {
+        font-family: var(--font-display);
+        font-weight: 600;
+        color: var(--lime-deep);
+        font-size: 14px;
+        white-space: nowrap;
+      }
+
+      .contact-banner {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        border-radius: 32px;
+        padding: clamp(36px, 6vw, 64px);
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .contact-banner .kicker {
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.12em;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+
+      .contact-banner h2 {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(32px, 5vw, 48px);
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+
+      .contact-banner h2 span {
+        color: var(--lime-deep);
+      }
+
+      .contact-banner .email {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(18px, 3vw, 26px);
+        margin-bottom: 24px;
+        word-break: break-all;
+      }
+
+      .contact-actions {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .page-foot {
+        text-align: center;
+        padding: 28px 0 48px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .toast {
+        position: fixed;
+        left: 50%;
+        bottom: 28px;
+        transform: translateX(-50%) translateY(16px);
+        background: var(--ink);
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 700;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        z-index: 100;
+      }
+
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      /* ===== Responsive ===== */
+      @media (max-width: 960px) {
+        .nav {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: inline-flex;
+        }
+
+        .header-cta {
+          display: none;
+        }
+
+        .about-card,
+        .workflow-wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .cap-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .project-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .float-badge {
+          display: none;
+        }
+      }
+
+      @media (max-width: 640px) {
+        :root {
+          --shell: calc(100% - 28px);
+        }
+
+        .section {
+          padding: 64px 0;
+        }
+
+        .metric-grid,
+        .cap-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .exp-card {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          padding-top: 100px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <div class="inner">
+        <a class="brand" href="#top">
+          <span class="brand-dot"></span>
+          HSP
+        </a>
+        <nav class="nav" aria-label="主导航">
+          <a href="#top" class="is-active">首页</a>
+          <a href="#about">关于</a>
+          <a href="#experience">经历</a>
+          <a href="#projects">项目</a>
+          <a href="#skills">能力</a>
+          <a href="#contact">联系</a>
+        </nav>
+        <a class="header-cta" href="#contact">联系我 ↗</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="打开菜单">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#top">首页</a>
+      <a href="#about">关于</a>
+      <a href="#experience">经历</a>
+      <a href="#projects">项目</a>
+      <a href="#skills">能力</a>
+      <a href="#contact">联系</a>
+    </div>
+
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-bg-text">PORTFOLIO</div>
+        <div class="hero-content">
+          <div class="hero-kicker">
+            <span class="pulse"></span>
+            CONTENT CREATOR / OPS
+          </div>
+          <h1 class="hero-title">
+            黄少鹏<span class="accent">.</span>
+          </h1>
+          <p class="hero-sub">
+            短视频编导 · 内容运营 · AIGC 实践者<br />
+            以内容驱动增长，以 AI 加速生产
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">看看作品 →</a>
+            <a class="btn btn-ghost" href="#contact">联系我 ↗</a>
+          </div>
+
+          <div style="position: relative">
+            <span class="float-badge b1">500万+ 播放</span>
+            <span class="float-badge b2">AIGC 工作流</span>
+            <span class="float-badge b3">TikTok 美区</span>
+            <div class="hero-visual">
+              <img src="assets/hero-3d.png" alt="3D 复古电脑作品集插画" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY NUMBERS -->
+      <section class="section" id="metrics">
+        <div class="shell">
+          <div class="section-label reveal">{ <span>KEY NUMBERS</span> }</div>
+          <h2 class="section-title reveal">核心数据</h2>
+          <div class="metric-grid">
+            <article class="metric-card reveal">
+              <div class="metric-num">500万+</div>
+              <div class="metric-label">短视频累计点击</div>
+              <div class="metric-source">点水二手车账号</div>
+            </article>
+            <article class="metric-card reveal">
+              <div class="metric-num">80万+</div>
+              <div class="metric-label">单条最高播放</div>
+              <div class="metric-source">爆款短视频</div>
+            </article>
+            <article class="metric-card reveal">
+              <div class="metric-num">0→1万</div>
+              <div class="metric-label">三个月涨粉</div>
+              <div class="metric-source">账号冷启动</div>
+            </article>
+            <article class="metric-card reveal">
+              <div class="metric-num">50万+</div>
+              <div class="metric-label">千川跑量消耗</div>
+              <div class="metric-source">欧莱雅百库视频</div>
+            </article>
+            <article class="metric-card reveal" style="grid-column: 1 / -1">
+              <div class="metric-num">30+</div>
+              <div class="metric-label">出海教程视频</div>
+              <div class="metric-source">引流 500+ 精准用户</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="shell">
+          <div class="section-label reveal">{ <span>ABOUT ME</span> }</div>
+          <h2 class="section-title reveal">关于我</h2>
+          <div class="about-card reveal">
+            <div>
+              <h3 class="about-name">黄少鹏</h3>
+              <div class="about-role">短视频编导 · 内容运营 · AIGC 实践者</div>
+              <p class="about-copy">
+                熟悉 TikTok 美区运营与国内短视频/直播链路，可独立完成选题策划、脚本撰写、拍摄执行、后期剪辑与投放复盘。擅长用
+                Coze、可灵、即梦等 AI 工具搭建可复用内容生产工作流，把爆款拆解、素材生成和数据反馈闭环到选品与转化。
+              </p>
+              <div class="tag-row">
+                <span class="tag">短视频编导</span>
+                <span class="tag">TikTok 美区</span>
+                <span class="tag">AIGC 工作流</span>
+                <span class="tag">千川跑量</span>
+                <span class="tag">直播支持</span>
+                <span class="tag">内容矩阵</span>
+              </div>
+            </div>
+            <div class="about-side">
+              <div class="info-tile">
+                <div class="k">EMAIL</div>
+                <div class="v">1581668083@qq.com</div>
+              </div>
+              <div class="info-tile">
+                <div class="k">PHONE</div>
+                <div class="v">158 2059 2213</div>
+              </div>
+              <div class="info-tile">
+                <div class="k">FOCUS</div>
+                <div class="v">内容增长 / 出海运营</div>
+              </div>
+              <button class="btn btn-primary" id="copyEmailBtn" type="button" style="justify-content: center">
+                复制邮箱 ↗
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section" id="experience">
+        <div class="shell">
+          <div class="section-label reveal">{ <span>EXPERIENCE</span> }</div>
+          <h2 class="section-title reveal">工作经历</h2>
+          <div class="exp-list">
+            <article class="exp-card reveal">
+              <div class="exp-idx">01</div>
+              <div>
+                <div class="exp-period">2026.03 — 2026.09</div>
+                <div class="exp-head">
+                  <h3 class="exp-org">钛动科技</h3>
+                  <span class="exp-title">AI 产品运营</span>
+                </div>
+                <p class="exp-summary">
+                  深耕 TikTok 美区跨境出海，运用 Coze、Codex、Workbuddy 等 AI
+                  工具搭建标准化可复用运营工作流；负责出海研究院内容与 Navos Agent 知识库优化。
+                </p>
+                <div class="exp-highlight">
+                  累计产出 30+ 出海教程视频，通过内容矩阵引流沉淀 500+ 精准用户，实现内容流量闭环。
+                </div>
+                <div class="tag-row">
+                  <span class="tag">TikTok 美区</span>
+                  <span class="tag">Coze 工作流</span>
+                  <span class="tag">爆款拆解</span>
+                  <span class="tag">知识库</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="exp-card reveal">
+              <div class="exp-idx">02</div>
+              <div>
+                <div class="exp-period">2025.11 — 2026.01</div>
+                <div class="exp-head">
+                  <h3 class="exp-org">欧莱雅百库</h3>
+                  <span class="exp-title">编导剪辑</span>
+                </div>
+                <p class="exp-summary">
+                  负责美妆品类短视频编导与剪辑，结合品牌调性与产品卖点完成选题策划、脚本撰写、镜头设计及后期制作。
+                </p>
+                <div class="exp-highlight">
+                  撰写并落地超 50 万消耗的跑量千川视频；用可灵、即梦、Nano Banana
+                  等 AIGC 工具生成创意分镜，建立 AI 素材库与提示词沉淀。
+                </div>
+                <div class="tag-row">
+                  <span class="tag">千川跑量</span>
+                  <span class="tag">美妆内容</span>
+                  <span class="tag">AIGC 分镜</span>
+                  <span class="tag">提示词库</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="exp-card reveal">
+              <div class="exp-idx">03</div>
+              <div>
+                <div class="exp-period">2025.03 — 2025.09</div>
+                <div class="exp-head">
+                  <h3 class="exp-org">北同皇御</h3>
+                  <span class="exp-title">运营</span>
+                </div>
+                <p class="exp-summary">
+                  负责美容美发品牌全渠道视频内容创作，覆盖项目宣传、技师形象、客户案例等方向的选题策划、拍摄执行与后期剪辑。
+                </p>
+                <div class="exp-highlight">
+                  参与品牌直播活动，承担直播画面导播、实时剪辑与后期花絮创作，为直播引流与转化提供视觉支持。
+                </div>
+                <div class="tag-row">
+                  <span class="tag">全渠道内容</span>
+                  <span class="tag">直播导播</span>
+                  <span class="tag">品牌宣传</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="exp-card reveal">
+              <div class="exp-idx">04</div>
+              <div>
+                <div class="exp-period">2024.07 — 2024.09</div>
+                <div class="exp-head">
+                  <h3 class="exp-org">点水二手车</h3>
+                  <span class="exp-title">运营</span>
+                </div>
+                <p class="exp-summary">
+                  负责二手车短视频账号全流程运营，包括选题策划、脚本撰写、拍摄执行与后期剪辑，并参与直播带货链路。
+                </p>
+                <div class="exp-highlight">
+                  主导多条爆款短视频，累计点击超 500 万，单条最高播放超 80
+                  万；三个月从 0 到 1 万粉丝，为公司提供 1k+ 私域客源。
+                </div>
+                <div class="tag-row">
+                  <span class="tag">账号冷启动</span>
+                  <span class="tag">爆款内容</span>
+                  <span class="tag">私域转化</span>
+                  <span class="tag">直播带货</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="exp-card reveal">
+              <div class="exp-idx">05</div>
+              <div>
+                <div class="exp-period">2023.05 — 2024.09</div>
+                <div class="exp-head">
+                  <h3 class="exp-org">猫松茸松茸</h3>
+                  <span class="exp-title">拍摄 · 运营 · 剪辑</span>
+                </div>
+                <p class="exp-summary">
+                  参与旅行内容账号的拍摄、运营与剪辑工作，支持人设内容持续产出与账号日常运营。
+                </p>
+                <div class="tag-row">
+                  <span class="tag">旅行内容</span>
+                  <span class="tag">人设运营</span>
+                  <span class="tag">拍摄剪辑</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section" id="projects">
+        <div class="shell">
+          <div class="section-label reveal">{ <span>CONTENTS</span> }</div>
+          <h2 class="section-title reveal">代表项目</h2>
+
+          <div class="project-visual-wrap reveal">
+            <img src="assets/cards-3d.png" alt="3D 项目卡片插画" />
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card wide reveal">
+              <div class="project-cat">二手车 · 账号冷启动 · 爆款内容</div>
+              <h3 class="project-title">点水二手车短视频账号从 0 到 1</h3>
+              <p class="project-copy">
+                以真实车况、价格透明和场景化讲解重构二手车内容表达，建立选题—脚本—拍摄—剪辑—复盘的固定生产节奏，并联动直播完成线索沉淀。
+              </p>
+              <div class="project-metrics">
+                <div>
+                  <div class="n">500万+</div>
+                  <div class="l">累计点击</div>
+                </div>
+                <div>
+                  <div class="n">80万+</div>
+                  <div class="l">单条最高播放</div>
+                </div>
+                <div>
+                  <div class="n">1万</div>
+                  <div class="l">三个月粉丝</div>
+                </div>
+                <div>
+                  <div class="n">1k+</div>
+                  <div class="l">私域客源</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-cat">TikTok 美区 · 内容矩阵 · AI 工作流</div>
+              <h3 class="project-title">钛动科技出海教程与引流闭环</h3>
+              <p class="project-copy">
+                用 OpenClaw / Creativeault AI 拆解美区爆款与跑量素材，反推选品与投放逻辑；以 Coze
+                批量生成教程与带货内容，沉淀可复用运营 SOP。
+              </p>
+              <div class="project-metrics">
+                <div>
+                  <div class="n">30+</div>
+                  <div class="l">教程视频</div>
+                </div>
+                <div>
+                  <div class="n">500+</div>
+                  <div class="l">精准用户</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-cat">美妆 · 千川 · AIGC 创意</div>
+              <h3 class="project-title">欧莱雅百库跑量视频与 AI 素材库</h3>
+              <p class="project-copy">
+                围绕产品卖点完成镜头设计与成片制作，产出超 50
+                万消耗的千川视频；同步用可灵、即梦等工具生成分镜，建立可检索的 AI 素材与提示词库。
+              </p>
+              <div class="project-metrics">
+                <div>
+                  <div class="n">50万+</div>
+                  <div class="l">千川消耗</div>
+                </div>
+                <div>
+                  <div class="n">AIGC</div>
+                  <div class="l">分镜与素材</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card wide reveal">
+              <div class="project-cat">本地生活 · 直播 · 全渠道内容</div>
+              <h3 class="project-title">北同皇御品牌内容与直播视觉支持</h3>
+              <p class="project-copy">
+                覆盖项目宣传、技师形象与客户案例的全渠道内容生产，并在直播中承担导播、实时剪辑与花絮二创，形成「日常内容 + 大场直播」的组合打法。
+              </p>
+              <div class="project-metrics">
+                <div>
+                  <div class="n">全渠道</div>
+                  <div class="l">内容覆盖</div>
+                </div>
+                <div>
+                  <div class="n">直播</div>
+                  <div class="l">导播与花絮</div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section" id="skills">
+        <div class="shell">
+          <div class="section-label reveal">{ <span>SKILLS</span> }</div>
+          <h2 class="section-title reveal">核心能力</h2>
+          <div class="cap-grid">
+            <article class="cap-card reveal">
+              <div class="cap-idx">01</div>
+              <h3 class="cap-title">短视频编导</h3>
+              <p class="cap-copy">选题策划、脚本撰写、镜头设计与成片节奏控制，覆盖口播、剧情、实拍与混剪。</p>
+            </article>
+            <article class="cap-card reveal">
+              <div class="cap-idx">02</div>
+              <h3 class="cap-title">内容运营</h3>
+              <p class="cap-copy">账号冷启动、内容矩阵搭建、数据复盘与私域沉淀，形成可复制的增长路径。</p>
+            </article>
+            <article class="cap-card reveal">
+              <div class="cap-idx">03</div>
+              <h3 class="cap-title">AIGC 工作流</h3>
+              <p class="cap-copy">Coze、可灵、即梦、Nano Banana 等工具串联脚本、分镜、素材与主图批量生产。</p>
+            </article>
+            <article class="cap-card reveal">
+              <div class="cap-idx">04</div>
+              <h3 class="cap-title">TikTok 美区</h3>
+              <p class="cap-copy">跨境开店体系、爆款素材拆解、选品逻辑优化与出海教程内容生产。</p>
+            </article>
+            <article class="cap-card reveal">
+              <div class="cap-idx">05</div>
+              <h3 class="cap-title">直播支持</h3>
+              <p class="cap-copy">直播前产品拍摄、直播中画面切换与导播、直播后二次创作与推广分发。</p>
+            </article>
+            <article class="cap-card reveal">
+              <div class="cap-idx">06</div>
+              <h3 class="cap-title">投放协同</h3>
+              <p class="cap-copy">千川跑量视频创作，结合消耗与转化数据反推脚本结构与素材迭代方向。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- WORKFLOW -->
+      <section class="section" id="workflow">
+        <div class="shell">
+          <div class="section-label reveal">{ <span>AI WORKFLOW</span> }</div>
+          <h2 class="section-title reveal">AI 工作流</h2>
+          <div class="workflow-wrap">
+            <div class="workflow-intro reveal">
+              <h3>让创意更快进入<br /><span>真实决策。</span></h3>
+              <p>
+                AI 负责加速表达与批量产出，选题判断、转化逻辑和真实性审核仍由人完成。以下是从爆款拆解到投放复盘的闭环路径。
+              </p>
+            </div>
+            <div class="workflow-steps reveal">
+              <div class="workflow-step">
+                <div class="n">01</div>
+                <div>
+                  <strong>爆款与数据拆解</strong>
+                  <p>用 OpenClaw / Creativeault AI 剖析视频结构、卖点节奏与转化逻辑。</p>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <div class="n">02</div>
+                <div>
+                  <strong>脚本与分镜定义</strong>
+                  <p>结合品牌调性与人群场景，输出可执行脚本、镜头清单与提示词。</p>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <div class="n">03</div>
+                <div>
+                  <strong>AI 素材批量生成</strong>
+                  <p>可灵、即梦、Nano Banana 生成创意分镜与主图，沉淀素材库。</p>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <div class="n">04</div>
+                <div>
+                  <strong>人工筛选与成片</strong>
+                  <p>筛选真实可用镜头，完成剪辑、包装与合规检查后进入投放或发布。</p>
+                </div>
+              </div>
+              <div class="workflow-step">
+                <div class="n">05</div>
+                <div>
+                  <strong>投放复盘与迭代</strong>
+                  <p>根据消耗、完播与转化数据回写脚本模板，优化下一波内容与选品。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESUME -->
+      <section class="section" id="resume">
+        <div class="shell">
+          <div class="section-label reveal">{ <span>EDUCATION</span> }</div>
+          <h2 class="section-title reveal">教育背景</h2>
+          <div class="edu-card reveal">
+            <div>
+              <h3>广东第二师范学院</h3>
+              <p>数字媒体技术</p>
+            </div>
+            <div class="edu-period">2025.09 — 2027.06</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="shell">
+          <div class="contact-banner reveal">
+            <div class="kicker">AVAILABLE FOR SELECTED OPPORTUNITIES</div>
+            <h2>让内容成为<br /><span>增长的一部分。</span></h2>
+            <div class="email">1581668083@qq.com</div>
+            <div class="contact-actions">
+              <button class="btn btn-primary" id="copyEmailBtn2" type="button">复制邮箱 ↗</button>
+              <a class="btn btn-ghost" href="mailto:1581668083@qq.com">发送邮件 →</a>
+              <a class="btn btn-ghost" href="tel:15820592213">拨打电话 →</a>
+            </div>
+          </div>
+          <div class="page-foot">© 2026 黄少鹏 · Content · Ops · AIGC</div>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast">邮箱已复制</div>
+
+    <script>
+      (function () {
+        const header = document.getElementById("siteHeader");
+        const menuToggle = document.getElementById("menuToggle");
+        const mobileNav = document.getElementById("mobileNav");
+        const toast = document.getElementById("toast");
+        const email = "1581668083@qq.com";
+
+        const onScroll = () => {
+          header.classList.toggle("is-scrolled", window.scrollY > 20);
+        };
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+
+        menuToggle.addEventListener("click", () => {
+          mobileNav.classList.toggle("open");
+        });
+
+        mobileNav.querySelectorAll("a").forEach((a) => {
+          a.addEventListener("click", () => mobileNav.classList.remove("open"));
+        });
+
+        const showToast = (msg) => {
+          toast.textContent = msg;
+          toast.classList.add("show");
+          clearTimeout(showToast._t);
+          showToast._t = setTimeout(() => toast.classList.remove("show"), 1800);
+        };
+
+        const copyEmail = async () => {
+          try {
+            await navigator.clipboard.writeText(email);
+            showToast("邮箱已复制");
+          } catch (e) {
+            const input = document.createElement("input");
+            input.value = email;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand("copy");
+            document.body.removeChild(input);
+            showToast("邮箱已复制");
+          }
+        };
+
+        ["copyEmailBtn", "copyEmailBtn2"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.addEventListener("click", copyEmail);
+        });
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-in");
+                io.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+        );
+
+        document.querySelectorAll(".reveal").forEach((el, i) => {
+          el.style.transitionDelay = (i % 4) * 0.06 + "s";
+          io.observe(el);
+        });
+
+        const sections = ["top", "about", "experience", "projects", "skills", "contact"];
+        const navLinks = [...document.querySelectorAll(".nav a")];
+        const spy = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const id = entry.target.id || "top";
+              navLinks.forEach((link) => {
+                const href = link.getAttribute("href") || "";
+                link.classList.toggle("is-active", href === "#" + id);
+              });
+            });
+          },
+          { rootMargin: "-40% 0px -50% 0px", threshold: 0.01 }
+        );
+        sections.forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) spy.observe(el);
+        });
+      })();
+    </script>
+  </body>
+</html>
