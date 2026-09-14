@@ -824,24 +824,6 @@
         object-fit: cover;
         display: block;
         background: #000;
-        position: absolute;
-        inset: 0;
-      }
-
-      .vslide-cover {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        z-index: 1;
-        transition: opacity 0.25s ease;
-      }
-
-      .vslide.is-playing .vslide-cover {
-        opacity: 0;
-        pointer-events: none;
       }
 
       .vslide-play {
@@ -2012,11 +1994,9 @@
               const slide = document.createElement("div");
               slide.className = "vslide";
               slide.dataset.real = String(((i - pad) % total + total) % total);
-              const poster = v.poster || (v.src.replace(/\.mp4$/i, "").replace("assets/videos/", "assets/posters/") + ".jpg");
               slide.innerHTML = `
                 <div class="media-frame">
-                  <img class="vslide-cover" src="${poster}" alt="${v.name} 封面" loading="lazy" decoding="async" />
-                  <video src="${v.src}" poster="${poster}" playsinline preload="none" muted loop></video>
+                  <video src="${v.src}" playsinline preload="metadata" muted loop></video>
                   <div class="vslide-play">
                     <div class="play-btn">
                       <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
